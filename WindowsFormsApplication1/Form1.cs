@@ -21,7 +21,10 @@ namespace WindowsFormsApplication1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string json = File.ReadAllText(@"C:\Users\eric.wild\Documents\AllSets.json");
+
+            string path = new DirectoryInfo(Environment.CurrentDirectory).Parent.Parent.FullName;
+            
+            string json = File.ReadAllText(path + @"\JSON\AllSets.json");
             var rootobject = Newtonsoft.Json.JsonConvert.DeserializeObject<Rootobject>(json);
             
             var hearthStoneContext = new HearthStoneContext();
